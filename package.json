@@ -1,0 +1,19 @@
+{
+  "name": "testgame",
+  "version": "1.0.0",
+  "description": "enchant.jsを使ったゲームを作ってみたいだけの人生",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobatakuJP/testGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kobatakuJP/testGame/issues"
+  },
+  "homepage": "https://github.com/kobatakuJP/testGame#readme"
+}
