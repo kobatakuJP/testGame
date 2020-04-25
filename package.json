@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kobatakuJP/testGame/issues"
   },
-  "homepage": "https://github.com/kobatakuJP/testGame#readme"
+  "homepage": "https://github.com/kobatakuJP/testGame#readme",
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
 }
