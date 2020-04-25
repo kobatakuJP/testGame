@@ -6,6 +6,16 @@ const imgPath = {
 };
 /** fps */
 const fps = 60;
+const comments = [
+  "ほあ",
+  "えい",
+  "よっ",
+  "よいしょ",
+  "もうちょい",
+  "セイッ",
+  "ふんっ",
+  "まだまだ",
+];
 
 window.onload = function () {
   const game = new Game(427, 640);
@@ -18,7 +28,28 @@ window.onload = function () {
     genkan.x = 0;
     genkan.y = 0;
     game.rootScene.addChild(genkan);
+    const comment = new Label();
+    comment.x = 180;
+    comment.y = 36;
+    comment.font = "24px Impact";
+    comment.text = "";
+    game.rootScene.addChild(comment);
     const makoto = getMakoto(game);
+    makoto.addEventListener("touchstart", function (e) {
+      comment.text = getComment();
+      if (this.x > 400) {
+        const clear = new Label();
+        clear.x = 160;
+        clear.y = 300;
+        clear.font = "48px Impact";
+        clear.text = "";
+        clear.color = "red";
+        clear.text = "Clear!!";
+        game.rootScene.addChild(clear);
+        return;
+      }
+      this.x++;
+    });
     game.rootScene.addChild(makoto);
   };
   game.start();
@@ -33,21 +64,13 @@ function getMakoto(game) {
   m.image = game.assets[imgPath.makoto];
   m.x = base.x;
   m.y = base.y;
-  m.on("enterframe", function () {
-    const xy = ellipseMove(
-      base.x,
-      base.y,
-      50,
-      10,
-      (this.age * speed * Math.PI) / 180
-    );
-    this.x = xy.x;
-    this.y = xy.y;
-    // this.rotate(2); // 2度ずつ回転
-    // this.scale(1.01, 1.01); // 縦横1.01倍ずつ拡大
-    // if (this.x > 320) this.x = 0; // 画面からはみ出したらx座標を0に戻す
-  });
+  m.rotate(270);
+  m.scale(1.2, 2);
   return m;
+}
+
+function getComment() {
+  return comments[Math.floor(Math.random() * comments.length)];
 }
 
 /** 楕円ムーブの座標 */
