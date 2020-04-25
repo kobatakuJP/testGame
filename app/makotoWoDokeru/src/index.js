@@ -36,7 +36,6 @@ window.onload = function () {
     game.rootScene.addChild(comment);
     const makoto = getMakoto(game);
     makoto.addEventListener("touchstart", function (e) {
-      comment.text = getComment();
       if (this.x > 400) {
         const clear = new Label();
         clear.x = 160;
@@ -48,6 +47,7 @@ window.onload = function () {
         game.rootScene.addChild(clear);
         return;
       }
+      comment.text = getComment();
       this.x++;
     });
     game.rootScene.addChild(makoto);
